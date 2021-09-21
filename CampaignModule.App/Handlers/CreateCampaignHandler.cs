@@ -15,6 +15,12 @@ namespace CampaignModule.App.Handlers
       _campaignService = new CampaignService();
     }
 
+    public CreateCampaignHandler(IProductService productService, ICampaignService campaignService)
+    {
+      _productService = productService;
+      _campaignService = campaignService;
+    }
+
     public string Handle(string[] args)
     {
       var product = _productService.Get(args[1]);
