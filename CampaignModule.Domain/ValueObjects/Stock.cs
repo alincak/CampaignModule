@@ -6,9 +6,9 @@ namespace CampaignModule.Domain.ValueObjects
 {
   public class Stock : ValueObject
   {
-    public double Value { get; private set; }
+    public int Value { get; private set; }
 
-    public Stock(double stock)
+    public Stock(int stock)
     {
       if (stock < 1)
       {

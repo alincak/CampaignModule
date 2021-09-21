@@ -26,5 +26,10 @@ namespace CampaignModule.Domain.Entities
     {
       IsActive = false;
     }
+
+    public override string ToString()
+    {
+      return string.Format($"Campaign; name {Name.Value}, product {ProductCode.Value}, duration {Duration.Value}, limit {PriceManipulationLimit.Value}, target sales count {TargetSalesCount.Value}");
+    }
   }
 }
