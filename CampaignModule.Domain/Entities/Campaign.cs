@@ -1,7 +1,7 @@
 ﻿using CampaignModule.Domain.Core;
 using CampaignModule.Domain.ValueObjects;
 
-namespace CampaignModule.Domain.OrderModels
+namespace CampaignModule.Domain.Entities
 {
   public class Campaign : Entity, IAggregateRoot
   {
