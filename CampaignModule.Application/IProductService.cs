@@ -1,8 +1,8 @@
 ﻿using CampaignModule.Domain.Entities;
 
-namespace CampaignModule.Infrastructure
+namespace CampaignModule.Application
 {
-  public interface IProductContext
+  public interface IProductService
   {
     Product Get(string code);
     bool Add(Product entity);

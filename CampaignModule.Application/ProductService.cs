@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CampaignModule.Infrastructure
+namespace CampaignModule.Application
 {
-  public class ProductContext : IProductContext
+  public class ProductService : IProductService
   {
     private static IList<Product> m_list = new List<Product>();
 

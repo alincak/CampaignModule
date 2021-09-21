@@ -1,8 +1,8 @@
 ﻿using CampaignModule.Domain.Entities;
 
-namespace CampaignModule.Infrastructure
+namespace CampaignModule.Application
 {
-  public interface ICampaignContext
+  public interface ICampaignService
   {
     Campaign Get(string name);
     bool Add(Campaign entity);

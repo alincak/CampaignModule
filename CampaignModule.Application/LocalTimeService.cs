@@ -1,6 +1,6 @@
-﻿namespace CampaignModule.Infrastructure
+﻿namespace CampaignModule.Application
 {
-  public class LocalTimeContext : ILocalTimeContext
+  public class LocalTimeService : ILocalTimeService
   {
     private static int m_localTime = 0;
 

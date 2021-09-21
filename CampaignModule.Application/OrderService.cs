@@ -1,9 +1,9 @@
 ﻿using CampaignModule.Domain.Entities;
 using System.Collections.Generic;
 
-namespace CampaignModule.Infrastructure
+namespace CampaignModule.Application
 {
-  public class OrderContext : IOrderContext
+  public class OrderService : IOrderService
   {
     private static IList<Order> m_list = new List<Order>();
 

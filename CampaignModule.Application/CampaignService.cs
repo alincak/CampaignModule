@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CampaignModule.Infrastructure
+namespace CampaignModule.Application
 {
-  public class CampaignContext : ICampaignContext
+  public class CampaignService : ICampaignService
   {
     private static IList<Campaign> m_list = new List<Campaign>();
 
-    private readonly ILocalTimeContext _localTimeContext;
+    private readonly ILocalTimeService _localTimeSerivce;
 
-    public CampaignContext()
+    public CampaignService()
     {
-      _localTimeContext = new LocalTimeContext();
+      _localTimeSerivce = new LocalTimeService();
     }
 
     public bool Add(Campaign entity)

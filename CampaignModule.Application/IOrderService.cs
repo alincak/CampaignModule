@@ -1,8 +1,8 @@
 ﻿using CampaignModule.Domain.Entities;
 
-namespace CampaignModule.Infrastructure
+namespace CampaignModule.Application
 {
-  public interface IOrderContext
+  public interface IOrderService
   {
     bool Add(Order entity);
   }
