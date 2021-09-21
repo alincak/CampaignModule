@@ -37,13 +37,13 @@ namespace CampaignModule.Application.Services
 
     public void Manipulation(int hour)
     {
-      _localTimeSerivce.Update(hour);
+      var newHour = _localTimeSerivce.Update(hour);
 
       if (campaigns != null && campaigns.Any())
       {
         foreach (var campaign in campaigns)
         {
-          if (!campaign.IsActive || hour < 1 || campaign.Duration.Value < hour)
+          if (!campaign.IsActive || newHour < 1 || campaign.Duration.Value < hour)
           {
             continue;
           }
@@ -54,24 +54,22 @@ namespace CampaignModule.Application.Services
             continue;
           }
 
-          var limitCalculatedValue = campaign.ProductPrice.Value - (campaign.ProductPrice.Value * campaign.PriceManipulationLimit.Value / 100);
-          var rateOfIncrease = 0.5 * 1 / campaign.Duration.Value;
-          var decreaseValue = campaign.ProductPrice.Value * rateOfIncrease;
-          var priceValue = campaign.ProductPrice.Value - decreaseValue;
+          var limit = campaign.PriceManipulationLimit.Value;
+
+          var limitCalculatedValue = product.Price.Value - (product.Price.Value * limit / 100);
+          var rateOfIncrease = limit / 100 / campaign.Duration.Value;
+          var decreaseValue = product.Price.Value * rateOfIncrease;
+          var priceValue = product.CampaignPrice.Value - decreaseValue;
 
           if (limitCalculatedValue <= priceValue)
           {
-            campaign.SetProductPrice(priceValue);
-            campaign.SetDuration(campaign.Duration.Value - hour);
-
             product.SetCampaignPrice(priceValue);
           }
           else
           {
-            campaign.SetProductPrice(priceValue);
             campaign.EndCampaign();
-            
-            product.SetCampaignPrice(priceValue);
+
+            product.SetCampaignPrice(product.Price.Value);
           }
         }
       }
