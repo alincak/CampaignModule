@@ -6,5 +6,6 @@ namespace CampaignModule.Application.Contracts
   {
     Campaign Get(string name);
     bool Add(Campaign entity);
+    void Manipulation(int hour);
   }
 }

@@ -1,19 +1,20 @@
 ﻿using CampaignModule.Application.Contracts;
+using System;
 
 namespace CampaignModule.Application.Services
 {
   public class LocalTimeService : ILocalTimeService
   {
-    private static int m_localTime = 0;
+    private static DateTime m_localTime = DateTime.UtcNow.Date;
 
-    public int Get()
+    public string Get()
     {
-      return m_localTime;
+      return string.Format($"Time is {m_localTime.ToString("HH:mm")}");
     }
 
-    public void Set(int hour)
+    public void Update(int hour)
     {
-      m_localTime += hour;
+      m_localTime.AddHours(hour);
     }
   }
 }

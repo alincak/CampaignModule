@@ -13,9 +13,14 @@ namespace CampaignModule.Domain.Entities
       Stock = new Stock(stock);
     }
 
-    public ProductCode Code { get; set; }
+    public ProductCode Code { get; private set; }
     public Price Price { get; private set; }
-    public Price CampaignPrice { get; set; }
-    public Stock Stock { get; set; }
+    public Price CampaignPrice { get; private set; }
+    public Stock Stock { get; private set; }
+
+    public void SetCampaignPrice(double price)
+    {
+      CampaignPrice = new Price(price);
+    }
   }
 }

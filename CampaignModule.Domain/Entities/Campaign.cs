@@ -16,13 +16,23 @@ namespace CampaignModule.Domain.Entities
       IsActive = true;
     }
 
-    public Name Name { get; set; }
-    public ProductCode ProductCode { get; set; }
-    public Price ProductPrice { get; set; }
-    public Duration Duration { get; set; }
-    public PriceManipulationLimit PriceManipulationLimit { get; set; }
-    public TargetSalesCount TargetSalesCount { get; set; }
+    public Name Name { get; private set; }
+    public ProductCode ProductCode { get; private set; }
+    public Price ProductPrice { get; private set; }
+    public Duration Duration { get; private set; }
+    public PriceManipulationLimit PriceManipulationLimit { get; private set; }
+    public TargetSalesCount TargetSalesCount { get; private set; }
     public bool IsActive { get; private set; }
+
+    public void SetProductPrice(double productPrice)
+    {
+      ProductPrice = new Price(productPrice);
+    }
+
+    public void SetDuration(int duration)
+    {
+      Duration = new Duration(duration);
+    }
 
     public void EndCampaign()
     {

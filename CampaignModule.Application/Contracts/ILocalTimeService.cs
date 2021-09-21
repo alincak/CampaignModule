@@ -2,7 +2,7 @@
 {
   public interface ILocalTimeService
   {
-    int Get();
-    void Set(int hour);
+    string Get();
+    void Update(int hour);
   }
 }
