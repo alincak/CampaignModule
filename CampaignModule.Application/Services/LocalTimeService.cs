@@ -1,4 +1,6 @@
-﻿namespace CampaignModule.Application
+﻿using CampaignModule.Application.Contracts;
+
+namespace CampaignModule.Application.Services
 {
   public class LocalTimeService : ILocalTimeService
   {

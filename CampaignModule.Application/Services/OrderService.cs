@@ -1,7 +1,8 @@
-﻿using CampaignModule.Domain.Entities;
+﻿using CampaignModule.Application.Contracts;
+using CampaignModule.Domain.Entities;
 using System.Collections.Generic;
 
-namespace CampaignModule.Application
+namespace CampaignModule.Application.Services
 {
   public class OrderService : IOrderService
   {
