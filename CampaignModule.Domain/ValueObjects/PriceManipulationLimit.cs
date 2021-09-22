@@ -1,5 +1,5 @@
 ﻿using CampaignModule.Domain.Core;
-using System;
+using CampaignModule.Domain.Exceptions;
 using System.Collections.Generic;
 
 namespace CampaignModule.Domain.ValueObjects
@@ -12,7 +12,7 @@ namespace CampaignModule.Domain.ValueObjects
     {
       if (limit < 1)
       {
-        throw new Exception("PriceManipulationLimit must be greater than zero.");
+        throw new CustomValueObjectException("PriceManipulationLimit must be greater than zero.");
       }
 
       Value = limit;

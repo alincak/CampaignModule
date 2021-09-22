@@ -1,5 +1,5 @@
 ﻿using CampaignModule.Domain.Core;
-using System;
+using CampaignModule.Domain.Exceptions;
 using System.Collections.Generic;
 
 namespace CampaignModule.Domain.ValueObjects
@@ -12,7 +12,7 @@ namespace CampaignModule.Domain.ValueObjects
     {
       if (string.IsNullOrEmpty(code))
       {
-        throw new Exception("Product code is required.");
+        throw new CustomValueObjectException("Product code is required.");
       }
 
       Value = code;
