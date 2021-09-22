@@ -1,6 +1,7 @@
 ﻿using CampaignModule.App.Handlers;
 using CampaignModule.Application.Contracts;
 using CampaignModule.Domain.Entities;
+using CampaignModule.Domain.Exceptions;
 using Moq;
 using System;
 using Xunit;
@@ -58,6 +59,14 @@ namespace CampaignModule.App.Tests.Handlers
     public void Handler_ArgsFormatException()
     {
       Assert.Throws<FormatException>(() => _handler.Handle(new string[] { "P1", "CC" }));
+    }
+
+    [Fact]
+    public void Handler_CustomValueObjectException()
+    {
+      _mockProductService.Setup(x => x.Add(It.IsAny<Product>())).Returns(true);
+
+      Assert.Throws<CustomValueObjectException>(() => _handler.Handle(new string[] { "P1", "-1", "150" }));
     }
 
   }
