@@ -15,6 +15,12 @@ namespace CampaignModule.App.Handlers
       _orderService = new OrderService();
     }
 
+    public CreateOrderHandler(IProductService productService, IOrderService orderService)
+    {
+      _productService = productService;
+      _orderService = orderService;
+    }
+
     public string Handle(string[] args)
     {
       var product = _productService.Get(args[0]);
