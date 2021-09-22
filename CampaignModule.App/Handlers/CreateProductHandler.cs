@@ -13,6 +13,11 @@ namespace CampaignModule.App.Handlers
       _productService = new ProductService();
     }
 
+    public CreateProductHandler(IProductService productService)
+    {
+      _productService = productService;
+    }
+
     public string Handle(string[] args)
     {
       var newProduct = new Product(args[0], double.Parse(args[1]), int.Parse(args[2]));
