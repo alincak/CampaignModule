@@ -14,6 +14,12 @@ namespace CampaignModule.App.Handlers
       _campaignService = new CampaignService();
     }
 
+    public IncreaseTimeHandler(ILocalTimeService localTimeService, ICampaignService campaignService)
+    {
+      _localTimeService = localTimeService;
+      _campaignService = campaignService;
+    }
+
     public string Handle(string[] args)
     {
       _campaignService.Manipulation(int.Parse(args[0]));
