@@ -15,6 +15,12 @@ namespace CampaignModule.App.Handlers
       _campaignService = new CampaignService();
     }
 
+    public GetCampaignInfoHandler(IOrderService orderService, ICampaignService campaignService)
+    {
+      _orderService = orderService;
+      _campaignService = campaignService;
+    }
+
     public string Handle(string[] args)
     {
       var campaign = _campaignService.Get(args[0]);

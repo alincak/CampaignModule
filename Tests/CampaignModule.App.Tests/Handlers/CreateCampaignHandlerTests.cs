@@ -60,18 +60,12 @@ namespace CampaignModule.App.Tests.Handlers
     [Fact]
     public void Handler_ArgsNullReferenceException()
     {
-      _mockProductService.Setup(x => x.Get(It.IsAny<string>())).Returns(_product);
-      _mockCampaignService.Setup(x => x.Add(It.IsAny<Campaign>())).Returns(false);
-
       Assert.Throws<NullReferenceException>(() => _handler.Handle(null));
     }
 
     [Fact]
     public void Handler_ArgsIndexOutOfRangeException()
     {
-      _mockProductService.Setup(x => x.Get(It.IsAny<string>())).Returns(_product);
-      _mockCampaignService.Setup(x => x.Add(It.IsAny<Campaign>())).Returns(false);
-
       Assert.Throws<IndexOutOfRangeException>(() => _handler.Handle(new string[] { "C1" }));
     }
 
@@ -79,7 +73,6 @@ namespace CampaignModule.App.Tests.Handlers
     public void Handler_ArgsFormatException()
     {
       _mockProductService.Setup(x => x.Get(It.IsAny<string>())).Returns(_product);
-      _mockCampaignService.Setup(x => x.Add(It.IsAny<Campaign>())).Returns(false);
 
       Assert.Throws<FormatException>(() => _handler.Handle(new string[] { "C1", "P1", "CC" }));
     }

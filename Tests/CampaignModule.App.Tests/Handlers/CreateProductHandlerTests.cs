@@ -45,24 +45,18 @@ namespace CampaignModule.App.Tests.Handlers
     [Fact]
     public void Handler_ArgsNullReferenceException()
     {
-      _mockProductService.Setup(x => x.Get(It.IsAny<string>())).Returns(_product);
-
       Assert.Throws<NullReferenceException>(() => _handler.Handle(null));
     }
 
     [Fact]
     public void Handler_ArgsIndexOutOfRangeException()
     {
-      _mockProductService.Setup(x => x.Get(It.IsAny<string>())).Returns(_product);
-
       Assert.Throws<IndexOutOfRangeException>(() => _handler.Handle(new string[] { "C1" }));
     }
 
     [Fact]
     public void Handler_ArgsFormatException()
     {
-      _mockProductService.Setup(x => x.Get(It.IsAny<string>())).Returns(_product);
-
       Assert.Throws<FormatException>(() => _handler.Handle(new string[] { "P1", "CC" }));
     }
 
